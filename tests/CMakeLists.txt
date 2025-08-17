@@ -14,6 +14,9 @@ enable_testing()
 
 add_executable(${NAME}
     core/test_Player.cpp
+    core/test_skill.cpp
+    core/test_goal.cpp
+    core/test_task.cpp
 )
 
 target_link_libraries(${NAME}

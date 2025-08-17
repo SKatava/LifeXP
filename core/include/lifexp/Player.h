@@ -3,6 +3,9 @@
 
 #include <string>
 #include <cstdint>
+#include <vector>
+
+#include "Skill.h"
 
 class Player{
     public:
@@ -17,13 +20,17 @@ class Player{
         uint16_t getLevel() const;
         uint32_t getXp() const;
         uint32_t getXpTreshold() const;
+        const std::vector<Skill>& getSkills() const;
 
-        //Lvl managment
+        //Lvl management
         void levelUp();
 
-        //Xp managment
+        //Xp management
         void addXp(uint32_t xp);
         void calculateXpTreshold();
+
+        //Skills management
+        void addSkill(const Skill& skill);
 
 
     private:
@@ -32,6 +39,8 @@ class Player{
         uint16_t m_level;
         uint32_t m_xp;
         uint32_t m_xpTreshold;
+        
+        std::vector<Skill> m_skills;
 };
 
 #endif

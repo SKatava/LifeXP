@@ -5,6 +5,7 @@ project(${NAME})
 set(SOURCES
     src/main.cpp
     src/Player.cpp
+    src/Skill.cpp
 )
 
 add_library(${NAME} STATIC ${SOURCES})

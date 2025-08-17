@@ -1,6 +1,8 @@
 #include "lifexp/Player.h"
 
 Player::Player(std::string name, uint8_t age, uint16_t level, uint32_t xp ) : m_name(name), m_age(age), m_level(level), m_xp(xp) {
+    m_skills.reserve(100);
+
     calculateXpTreshold();
 }
 
@@ -28,8 +30,12 @@ uint32_t Player::getXpTreshold() const {
     return m_xpTreshold;
 }
 
+const std::vector<Skill>& Player::getSkills() const {
+    return m_skills;
+}
+
 //---------------------------------------------------------------------------------------------------------------------------
-//Level managment
+//Level management
 //---------------------------------------------------------------------------------------------------------------------------
 
 void Player::levelUp() {
@@ -42,7 +48,7 @@ void Player::levelUp() {
 }
 
 //---------------------------------------------------------------------------------------------------------------------------
-//Xp managment
+//Xp management
 //---------------------------------------------------------------------------------------------------------------------------
 
 void Player::addXp(uint32_t xp) {
@@ -56,4 +62,11 @@ void Player::calculateXpTreshold() {
     m_xpTreshold = BASE_XP * m_level* m_level;
 }
 
+//---------------------------------------------------------------------------------------------------------------------------
+//Skills management
+//---------------------------------------------------------------------------------------------------------------------------
+
+void Player::addSkill(const Skill& skill){
+    m_skills.push_back(skill);
+}
 
