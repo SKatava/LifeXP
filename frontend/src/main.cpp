@@ -1,6 +1,9 @@
 #include <iostream>
+#include <format>
+#include <lifexp/Player.h>
 
 int main(){
-    std::cout << "frontend\n";
+    Player player("Sven", 18, 1, 0);
+    std::cout << std::format("Welcome Player: {}\n", player.getName());
     return 0;
 }
